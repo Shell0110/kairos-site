@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/config/site";
 import { fmt, getDictionary } from "@/i18n";
-import { BRAND_INK, BRAND_VIOLET, BrandMark } from "./brand-mark";
+import { BRAND_INK, BRAND_BLUE, BrandMark } from "./brand-mark";
 
 /**
  * Image d'aperçu quand le lien du site est partagé (X, Telegram, Discord…).
@@ -43,7 +43,7 @@ export default async function OpengraphImage() {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ fontSize: 76, fontWeight: 700, letterSpacing: -2.5, lineHeight: 1.05 }}>{t.ogTagline}</span>
-          <span style={{ fontSize: 76, fontWeight: 700, letterSpacing: -2.5, lineHeight: 1.05, color: BRAND_VIOLET }}>
+          <span style={{ fontSize: 76, fontWeight: 700, letterSpacing: -2.5, lineHeight: 1.05, color: BRAND_BLUE }}>
             {t.ogTaglineAccent}
           </span>
         </div>

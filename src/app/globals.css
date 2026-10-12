@@ -4,7 +4,7 @@
   logs: false;
 }
 
-/* Thème daisyUI aligné sur la direction artistique de crowny.fun */
+/* Thème daisyUI « kairos » : fond blanc, encre quasi noire, accent royal blue (#4169E1) */
 @plugin "daisyui/theme" {
   name: "kairos";
   default: true;
@@ -15,10 +15,10 @@
   --color-base-200: #f2f2f6;
   --color-base-300: #ececf0;
   --color-base-content: #0c0c14;
-  --color-primary: #6c5ce7;
+  --color-primary: #4169e1;
   --color-primary-content: #ffffff;
-  --color-secondary: #efedfd;
-  --color-secondary-content: #6c5ce7;
+  --color-secondary: #eaf0fd;
+  --color-secondary-content: #4169e1;
   --color-accent: #f5b301;
   --color-accent-content: #3d2b00;
   --color-neutral: #0c0c14;
@@ -61,12 +61,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Pastille dorée façon crowny.fun (offre des 100 premiers inscrits) */
+/* Pastille dorée (offre des premiers inscrits) */
 @utility badge-gold {
   @apply border-0 bg-gradient-to-b from-[#fff6de] to-[#ffe9ac] font-semibold text-warning-content;
 }
 
-/* Bouton principal : léger glow violet au survol */
+/* Bouton principal : léger glow bleu au survol */
 @utility btn-glow {
   transition:
     box-shadow 0.25s ease,

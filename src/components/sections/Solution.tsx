@@ -4,7 +4,7 @@ import { fmt, getDictionary } from "@/i18n";
 
 const t = getDictionary();
 
-// Une pastille de couleur douce par étape, comme la timeline de crowny.fun
+// Une pastille de couleur douce par étape
 const steps = [
   { Icon: ListCheckIcon, dot: "bg-primary/10 text-primary" },
   { Icon: ConvergeIcon, dot: "bg-warning/15 text-warning" },
