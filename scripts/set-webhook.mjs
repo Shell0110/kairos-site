@@ -1,13 +1,13 @@
 // Branche @KairosAlertsSOLBot sur le site en ligne (à lancer une fois après chaque changement d'URL).
-// Usage :  npm run bot:set-webhook
-// Utilise NEXT_PUBLIC_SITE_URL (ex. https://kairos.vercel.app) depuis .env.local.
+// Usage :  npm run bot:set-webhook -- https://ton-site.vercel.app
+// (sans adresse, utilise NEXT_PUBLIC_SITE_URL de .env.local)
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const secret = process.env.TELEGRAM_WEBHOOK_SECRET;
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl = process.argv[2] ?? process.env.NEXT_PUBLIC_SITE_URL;
 
 if (!token || !secret || !siteUrl) {
-  console.error("❌ TELEGRAM_BOT_TOKEN, TELEGRAM_WEBHOOK_SECRET et NEXT_PUBLIC_SITE_URL doivent être remplis dans .env.local");
+  console.error("❌ TELEGRAM_BOT_TOKEN, TELEGRAM_WEBHOOK_SECRET (.env.local) et l'adresse du site sont nécessaires");
   process.exit(1);
 }
 if (!siteUrl.startsWith("https://")) {

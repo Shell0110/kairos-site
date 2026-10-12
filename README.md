@@ -24,7 +24,7 @@ qui enregistre la personne dans la table Supabase `beta_users` et lui répond (t
 | Commande | Rôle |
 | --- | --- |
 | `npm run bot:dev` | Test en local (pendant `npm run dev`) : relaie les messages du bot vers le site local |
-| `npm run bot:set-webhook` | Après déploiement : branche le bot sur le site en ligne (`NEXT_PUBLIC_SITE_URL`) |
+| `npm run bot:set-webhook -- https://ton-site.vercel.app` | Après déploiement : branche le bot sur le site en ligne |
 
 Table : `supabase/migrations/0001_beta_users.sql` (à exécuter dans le SQL Editor de Supabase).
 
