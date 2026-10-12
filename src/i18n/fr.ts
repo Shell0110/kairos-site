@@ -195,6 +195,36 @@ export const fr = {
     disclaimer: "<i>Signaux informatifs, aucune garantie de gain. Fais tes propres recherches.</i>",
   },
 
+  /** Page /admin (privée) */
+  admin: {
+    title: "Admin {name}",
+    loginTitle: "Accès admin",
+    passwordLabel: "Mot de passe",
+    login: "Se connecter",
+    loggingIn: "Connexion…",
+    wrongPassword: "Mot de passe incorrect.",
+    notConfigured: "ADMIN_PASSWORD n'est pas défini sur le serveur.",
+    logout: "Se déconnecter",
+    exportCsv: "Exporter en CSV",
+    stats: {
+      total: "Inscrits",
+      active: "Joignables",
+      activeHint: "n'ont pas bloqué le bot",
+      today: "Aujourd'hui",
+      last7: "7 derniers jours",
+    },
+    perDayTitle: "Inscriptions par jour",
+    perDayHint: "30 derniers jours",
+    perDayTooltip: "{date} : {count} inscrit(s)",
+    sourcesTitle: "Provenance",
+    sourcesHint: "paramètre ?start= du lien t.me",
+    sourceDirect: "(lien direct)",
+    recentTitle: "Derniers inscrits",
+    columns: { user: "Utilisateur", source: "Provenance", date: "Date", status: "Statut", count: "Inscrits" },
+    blocked: "a bloqué",
+    empty: "Aucun inscrit pour l'instant.",
+  },
+
   footer: {
     tagline: "Alertes smart money Solana sur Telegram.",
     disclaimer: "Signaux informatifs, aucune garantie de gain. Fais tes propres recherches.",
