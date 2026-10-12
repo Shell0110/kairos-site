@@ -1,66 +1,53 @@
 import type { ConvergenceAlert } from "@/data/sample-alerts";
 import { fmt, formatNumber, formatUsdCompact, getDictionary } from "@/i18n";
-import { TelegramBubble, formatAlertDate, formatAlertTime, shortAddress } from "./TelegramChat";
+import { Nowrap, TelegramBubble, formatAlertDate, formatAlertTime } from "./TelegramChat";
 
-const t = getDictionary();
+const t = getDictionary().telegram;
 
+/** Alerte de convergence (≥ 3 wallets smart sur le même token) — format prévu pour le bot en semaine 2. */
 export function ConvergenceAlertMessage({ alert }: { alert: ConvergenceAlert }) {
   const { token } = alert;
-  const tl = t.telegram;
   const total = alert.buys.reduce((sum, b) => sum + b.amountSol, 0);
 
   return (
     <TelegramBubble
       time={formatAlertTime(alert.timestamp)}
-      buttons={[tl.links.dexscreener, tl.links.solscan, tl.links.gmgn]}
+      buttons={[t.links.dexscreener, t.links.solscan, t.links.gmgn]}
     >
-      <p className="font-semibold">
-        🚨{" "}
-        {fmt(tl.convergenceTitle, {
-          count: alert.buys.length,
-          ticker: token.ticker,
-          minutes: alert.windowMinutes,
-        })}
+      <p>
+        🚨 <b>{t.convergenceTitle}</b> ·{" "}
+        {fmt(t.convergenceSubtitle, { count: alert.buys.length, minutes: alert.windowMinutes })}
       </p>
-
       <p className="mt-2">
-        🪙 <span className="font-semibold">{token.name}</span> <span className="text-tg-link">${token.ticker}</span>
+        🪙 <b>{token.name}</b> ${token.ticker}
       </p>
-      <p className="break-all font-mono text-[12px] text-base-content/60">
-        {tl.contract} : {token.mint}
-      </p>
-
-      <ol className="mt-2 space-y-1">
+      <p className="font-mono text-[10.5px] break-all text-[#007aff]">{token.mint}</p>
+      <ol className="mt-2">
         {alert.buys.map((buy, i) => (
-          <li key={buy.address} className="flex flex-wrap items-baseline gap-x-1.5">
-            <span className="text-base-content/60">{i + 1}.</span>
-            <span className="font-semibold">{buy.label}</span>
-            <span className="text-[12px] text-base-content/60">{shortAddress(buy.address)}</span>
-            <span className="text-success">{formatNumber(buy.amountSol)} SOL</span>
-            <span className="text-[12px] text-base-content/60">
-              · {buy.minutesAgo === 0 ? tl.justNow : fmt(tl.minutesAgo, { m: buy.minutesAgo })}
+          <li key={buy.address}>
+            {i + 1}. <b>{buy.label}</b> · {formatNumber(buy.amountSol)} SOL ·{" "}
+            <span className="text-black/50">
+              {buy.minutesAgo === 0 ? t.justNow : fmt(t.minutesAgo, { m: buy.minutesAgo })}
             </span>
           </li>
         ))}
       </ol>
-
       <p className="mt-2">
-        💰 {tl.totalBought} : <span className="font-semibold text-success">{formatNumber(total)} SOL</span>
+        💰 {t.total} : <b>{formatNumber(total)} SOL</b>
       </p>
-
-      <ul className="mt-2 space-y-0.5 text-base-content/85">
-        <li>
-          📊 {tl.marketCap} : {formatUsdCompact(token.marketCapUsd)}
-        </li>
-        <li>
-          💧 {tl.liquidity} : {formatUsdCompact(token.liquidityUsd)}
-        </li>
-        <li>
-          ⏱️ {tl.age} : {token.age}
-        </li>
-      </ul>
-
-      <p className="mt-2 text-[12px] text-base-content/60">🕒 {formatAlertDate(alert.timestamp)}</p>
+      <p>
+        <Nowrap>
+          📊 {t.marketCap} : {formatUsdCompact(token.marketCapUsd)}
+        </Nowrap>{" "}
+        ·{" "}
+        <Nowrap>
+          💧 {t.liquidity} : {formatUsdCompact(token.liquidityUsd)}
+        </Nowrap>
+      </p>
+      <p>
+        ⏱️ {t.age} : {token.age}
+      </p>
+      <p className="mt-2">🕒 {formatAlertDate(alert.timestamp)}</p>
     </TelegramBubble>
   );
 }

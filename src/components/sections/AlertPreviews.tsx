@@ -1,5 +1,5 @@
 import { Section } from "@/components/ui/Section";
-import { TelegramChat } from "@/components/telegram/TelegramChat";
+import { TelegramChat, formatAlertTime } from "@/components/telegram/TelegramChat";
 import { BuyAlertMessage } from "@/components/telegram/BuyAlertMessage";
 import { ConvergenceAlertMessage } from "@/components/telegram/ConvergenceAlertMessage";
 import { sampleBuyAlert, sampleConvergenceAlert } from "@/data/sample-alerts";
@@ -16,7 +16,7 @@ export function AlertPreview() {
       subtitle={t.alertPreview.subtitle}
     >
       <div data-reveal>
-        <TelegramChat label={t.alertPreview.sampleBadge}>
+        <TelegramChat label={t.alertPreview.sampleBadge} time={formatAlertTime(sampleBuyAlert.timestamp)}>
           <BuyAlertMessage alert={sampleBuyAlert} />
         </TelegramChat>
       </div>
@@ -33,7 +33,7 @@ export function ConvergencePreview() {
       className="bg-base-200/40"
     >
       <div data-reveal>
-        <TelegramChat label={t.alertPreview.sampleBadge}>
+        <TelegramChat label={t.alertPreview.sampleBadge} time={formatAlertTime(sampleConvergenceAlert.timestamp)}>
           <ConvergenceAlertMessage alert={sampleConvergenceAlert} />
         </TelegramChat>
       </div>
