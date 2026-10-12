@@ -1,26 +1,102 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "daisyui" {
+  themes: false;
+  logs: false;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Thème daisyUI aligné sur la direction artistique de crowny.fun */
+@plugin "daisyui/theme" {
+  name: "kairos";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #ffffff;
+  --color-base-200: #f2f2f6;
+  --color-base-300: #ececf0;
+  --color-base-content: #0c0c14;
+  --color-primary: #6c5ce7;
+  --color-primary-content: #ffffff;
+  --color-secondary: #efedfd;
+  --color-secondary-content: #6c5ce7;
+  --color-accent: #f5b301;
+  --color-accent-content: #3d2b00;
+  --color-neutral: #0c0c14;
+  --color-neutral-content: #ffffff;
+  --color-info: #2e90fa;
+  --color-info-content: #ffffff;
+  --color-success: #17b26a;
+  --color-success-content: #ffffff;
+  --color-warning: #f5b301;
+  --color-warning-content: #5c4100;
+  --color-error: #f04438;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 1.5rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+
+  --depth: 0;
+  --noise: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+
+  /* Bleu officiel Telegram (bouton de la barre de navigation) */
+  --color-telegram: #2aabee;
+
+  /* Couleurs fixes du mockup Telegram (thème clair de Telegram) */
+  --color-tg-bg: #e9eef3;
+  --color-tg-link: #2e90fa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Pastille dorée façon crowny.fun (offre des 100 premiers inscrits) */
+@utility badge-gold {
+  @apply border-0 bg-gradient-to-b from-[#fff6de] to-[#ffe9ac] font-semibold text-warning-content;
+}
+
+/* Bouton principal : léger glow violet au survol */
+@utility btn-glow {
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+  &:hover,
+  &:focus-visible {
+    box-shadow: 0 8px 28px -8px color-mix(in oklab, var(--color-primary) 70%, transparent);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Apparition au scroll — active seulement si le JS a chargé (attribut posé par <RevealOnScroll />) */
+[data-reveal-ready] [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+[data-reveal-ready] [data-reveal][data-visible] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal-ready] [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
