@@ -28,7 +28,7 @@ export function TelegramBubble({ children, time, buttons }: { children: ReactNod
     <div className="chat chat-start">
       <div className="chat-bubble max-w-full bg-base-100 px-3.5 pt-2.5 pb-1.5 text-[14px] leading-relaxed text-base-content shadow-sm">
         {children}
-        <p className="mt-1 text-right text-[11px] text-base-content/45">{time}</p>
+        <p className="mt-1 text-right text-[11px] text-base-content/60">{time}</p>
       </div>
       {buttons && (
         <div className="chat-footer mt-1.5 grid w-full grid-cols-3 gap-1.5">

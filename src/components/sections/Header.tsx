@@ -10,7 +10,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-base-300/70 bg-base-100/85 backdrop-blur-md">
       <nav className="navbar mx-auto max-w-5xl px-4">
         <div className="navbar-start">
-          <a href="#top" aria-label="Accueil">
+          <a href="#top" aria-label={fmt(t.nav.home)}>
             <Logo />
           </a>
         </div>

@@ -29,7 +29,7 @@ export function Solution() {
                 </span>
               </div>
               <div className="timeline-end mb-12 ml-3 max-w-md pt-1 sm:ml-5">
-                <p className="text-xs font-semibold tracking-wider text-base-content/45 uppercase">
+                <p className="text-xs font-semibold tracking-wider text-base-content/60 uppercase">
                   {fmt(t.solution.step, { n: i + 1 })}
                 </p>
                 <h3 className="mt-1 font-display text-2xl font-bold tracking-tight">{item.title}</h3>

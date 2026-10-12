@@ -33,11 +33,11 @@ export function ConvergenceAlertMessage({ alert }: { alert: ConvergenceAlert }) 
       <ol className="mt-2 space-y-1">
         {alert.buys.map((buy, i) => (
           <li key={buy.address} className="flex flex-wrap items-baseline gap-x-1.5">
-            <span className="text-base-content/45">{i + 1}.</span>
+            <span className="text-base-content/60">{i + 1}.</span>
             <span className="font-semibold">{buy.label}</span>
-            <span className="text-[12px] text-base-content/45">{shortAddress(buy.address)}</span>
+            <span className="text-[12px] text-base-content/60">{shortAddress(buy.address)}</span>
             <span className="text-success">{formatNumber(buy.amountSol)} SOL</span>
-            <span className="text-[12px] text-base-content/45">
+            <span className="text-[12px] text-base-content/60">
               · {buy.minutesAgo === 0 ? tl.justNow : fmt(tl.minutesAgo, { m: buy.minutesAgo })}
             </span>
           </li>
@@ -60,7 +60,7 @@ export function ConvergenceAlertMessage({ alert }: { alert: ConvergenceAlert }) 
         </li>
       </ul>
 
-      <p className="mt-2 text-[12px] text-base-content/45">🕒 {formatAlertDate(alert.timestamp)}</p>
+      <p className="mt-2 text-[12px] text-base-content/60">🕒 {formatAlertDate(alert.timestamp)}</p>
     </TelegramBubble>
   );
 }

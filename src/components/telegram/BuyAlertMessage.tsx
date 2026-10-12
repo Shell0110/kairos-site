@@ -17,7 +17,7 @@ export function BuyAlertMessage({ alert }: { alert: BuyAlert }) {
 
       <p className="mt-2">
         👛 {tl.wallet} : <span className="font-semibold">{wallet.label}</span>{" "}
-        <span className="text-base-content/45">({shortAddress(wallet.address)})</span>
+        <span className="text-base-content/60">({shortAddress(wallet.address)})</span>
         <span className="badge badge-soft badge-primary badge-xs ml-1.5 font-semibold whitespace-nowrap">
           {tl.tags[wallet.tag]}
         </span>
@@ -54,7 +54,7 @@ export function BuyAlertMessage({ alert }: { alert: BuyAlert }) {
         </li>
       </ul>
 
-      <p className="mt-2 text-[12px] text-base-content/45">🕒 {formatAlertDate(alert.timestamp)}</p>
+      <p className="mt-2 text-[12px] text-base-content/60">🕒 {formatAlertDate(alert.timestamp)}</p>
     </TelegramBubble>
   );
 }

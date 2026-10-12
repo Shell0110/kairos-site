@@ -9,7 +9,14 @@ export const fr = {
   meta: {
     title: "{name} — Tracker de wallets Solana et alertes smart money",
     description:
-      "{name} est un bot Telegram qui t'alerte quand les meilleurs wallets smart money Solana achètent un memecoin. Alertes de convergence, filtres market cap et liquidité. Rejoins la liste d'attente.",
+      "{name} est un bot Telegram qui t'alerte quand les meilleurs wallets smart money Solana achètent un memecoin. Alertes de convergence, filtres market cap et liquidité. Rejoins la bêta.",
+    /** Aperçu quand le lien est partagé sur X / Telegram (titre court + phrase d'accroche) */
+    shareTitle: "{name} — Alertes smart money Solana",
+    shareDescription: "Les meilleurs wallets Solana achètent. Tu es prévenu. Rejoins la bêta sur Telegram.",
+    ogImageAlt: "{name} : alertes smart money Solana sur Telegram",
+    ogTagline: "Les meilleurs wallets Solana achètent.",
+    ogTaglineAccent: "Tu es prévenu.",
+    ogBadge: "Bêta sur Telegram",
     keywords: [
       "tracker wallet solana",
       "smart money solana",
@@ -21,6 +28,7 @@ export const fr = {
   },
 
   nav: {
+    home: "{name}, accueil",
     telegram: "Telegram",
     telegramLabel: "Ouvrir @{bot} sur Telegram",
   },

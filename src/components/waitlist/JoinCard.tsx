@@ -28,7 +28,7 @@ export function JoinCard() {
           {fmt(t.subtitle)}
           <span aria-hidden>{" "}→</span>
         </p>
-        <p className="mt-4 text-xs text-base-content/50">
+        <p className="mt-4 text-xs text-base-content/60">
           🎁 {fmt(t.earlyBird, { spots: siteConfig.pricing.earlyBirdSpots })}
         </p>
       </div>

@@ -16,12 +16,28 @@ const spaceGrotesk = Space_Grotesk({
 
 const t = getDictionary();
 
-// Métadonnées de base — complétées à l'étape 5 (Open Graph, favicon…)
+// Image d'aperçu (app/opengraph-image.tsx) et favicon (app/icon.tsx) sont ajoutés automatiquement par Next.js
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: fmt(t.meta.title),
   description: fmt(t.meta.description),
   keywords: [...t.meta.keywords],
+  applicationName: siteConfig.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: "/",
+    siteName: siteConfig.name,
+    title: fmt(t.meta.shareTitle),
+    description: fmt(t.meta.shareDescription),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: fmt(t.meta.shareTitle),
+    description: fmt(t.meta.shareDescription),
+  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
